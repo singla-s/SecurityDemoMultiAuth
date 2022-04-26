@@ -42,8 +42,15 @@ namespace SecurityDemoMultiAuth
             //Add Google Authentication Service
             services.AddAuthentication().AddGoogle(options =>
             {
-                options.ClientId = Configuration["Authentication:Google:ClientId"];
-                options.ClientSecret = Configuration["Authentication:Google:ClientSecret"];
+                options.ClientId = Configuration["Authentication:Google.ClientId"];
+                options.ClientSecret = Configuration["Authentication:Google.ClientSecret"];
+            });
+
+            //Add Microsoft Authentication Service
+            services.AddAuthentication().AddMicrosoftAccount(options =>
+            {
+                options.ClientId = Configuration["Authentication:Microsoft.ClientId"];
+                options.ClientSecret = Configuration["Authentication:Microsoft.ClientSecret"];
             });
         }
 
